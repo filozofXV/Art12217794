@@ -1,0 +1,51 @@
+---
+title: "Art12217794_Demonstration"
+author: "Martin Ilić"
+date: "27/01/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Please uncomment the install.packages() chunk, it returns some weird errors if left in here
+
+
+```{r, include = FALSE, warning = FALSE}
+# install.packages("ggplot2")
+# install.packages("wesanderson")
+# devtools::install_github("https://github.com/filozofXV/Art12217794", force = T)
+```
+
+## The package has a single function: make_art(). make_art has two (optional) arguments: seed and palette. With seed, you specify the random seed for the function to use in art generation, making art reproducible. The palette argument specifies which colour palette from Wes Anderson to use (hint: check names(wes_palettes)!)
+
+``` {r}
+library(ggplot2)
+library(wesanderson)
+library(Art12217794)
+
+make_art()
+```
+
+## Different palettes, same seed
+```{r}
+names(wes_palettes)
+
+make_art(5, "BottleRocket1")
+make_art(5, "Rushmore1")
+make_art(5, "Rushmore")
+make_art(5, "Royal1")
+make_art(5, "Royal2")
+```
+
+## Different seeds, same palette
+
+```{r}
+
+make_art(1, "Royal2")
+make_art(2, "Royal2")
+make_art(3, "Royal2")
+make_art(4, "Royal2")
+make_art(5, "Royal2")
+```
